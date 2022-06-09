@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ChatMessage, ChatStore } from "./simple-store";
+import { tap } from "rxjs/operators";
 
 const EXAMPLE_MESSAGE: ChatMessage = {
   id: 0,
@@ -16,7 +17,13 @@ export const Chat = () => {
 
   useEffect(() => {
     // Subscription to data change and setting state
-    const sub = store.messages$.subscribe((messages) => setMessages(messages));
+    const sub = store.messages$
+      .pipe(
+        tap((messages) => {
+          console.log(messages);
+        })
+      )
+      .subscribe((messages) => setMessages(messages));
 
     return () => {
       // Cleaning up after component unmount
