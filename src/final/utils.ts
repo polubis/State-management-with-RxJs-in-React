@@ -9,7 +9,6 @@ export const getRandom = (min: number, max: number): number => {
 
 export const useFakeBot = (onTick: (message: ChatMessage) => void) => {
   useEffect(() => {
-    // Imitating a bot
     const MESSAGE_CONTENTS = [
       "Hi",
       "You're going to the cinema?",

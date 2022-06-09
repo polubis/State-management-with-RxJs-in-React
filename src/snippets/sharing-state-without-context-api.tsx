@@ -35,5 +35,5 @@ export const ComponentB = () => {
 // ComponentC.tsx
 import { store } from "./ChatStore.tsx";
 export const ComponentC = () => {
-  // ... Same as above
+  // ...Same as above
 };

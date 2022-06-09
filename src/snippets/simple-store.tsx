@@ -10,12 +10,12 @@ export const ChatStore = (initMessages: ChatMessage[] = []) => {
   const messagesSubject = new BehaviorSubject(initMessages);
 
   return {
-    // Hidding implementation details
-    // For consumers we would like to expose only API for subscription
+    // Hiding  implementation details
+    // For consumers, we would like to expose only API for subscription
     messages$: messagesSubject.asObservable(),
 
-    // Function which allows to read data without subscription
-    // Helpfull in comparision logic, ...etc
+    // The function reading to read data without subscription
+    // Helpful in comparison logic, ...etc
     get messages() {
       return messagesSubject.getValue();
     },
